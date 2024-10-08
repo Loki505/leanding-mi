@@ -1,0 +1,10 @@
+.header{
+  display: flex;
+  background-color: #9fd058;
+  padding: 100px 0;
+  text-align: center;
+  @media (max-width: 1200px) {
+    padding: 50px 0;
+  }
+}
+

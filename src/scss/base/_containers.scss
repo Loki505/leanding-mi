@@ -1,0 +1,13 @@
+.container-full{
+  padding: 0 var(--mobile-container-padding);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+
+  @include laptop(){
+    padding: 0 var(--laptop-container-padding);
+  }
+  @include tabled(){
+    padding: 0 var(--tablet-container-padding);
+  }
+}

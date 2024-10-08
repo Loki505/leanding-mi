@@ -1,0 +1,10 @@
+.footer{
+  background-color: cadetblue;
+  padding: 120px 0;
+  text-align: center;
+
+  @media (max-width: 1200px) {
+    padding: 50px 0;
+  }
+}
+
