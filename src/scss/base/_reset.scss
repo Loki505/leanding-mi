@@ -45,6 +45,7 @@ img {
 img, svg {
   max-width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 address {
@@ -58,6 +59,9 @@ input, textarea, button, select {
   font-size: inherit;
   color: inherit;
   background-color: transparent;
+}
+input{
+  border-radius: 0;
 }
 
 input::-ms-clear {

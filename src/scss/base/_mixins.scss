@@ -1,3 +1,4 @@
+
 @mixin mediaBg(){
   @media (-webkit-device-pixel-ratio: 2), (min-resolution: 2dppx) {
     @content;
@@ -27,3 +28,20 @@
   font-size: $size;
   line-height: $height;
 }
+
+@mixin color-text($name,$color){
+  .text-#{$name}{
+    color: var($color);
+  }
+}
+
+@mixin font-weight($name,$weight){
+  .weight-#{$name}{
+    font-weight: var($weight);
+  }
+}
+
+@mixin transparent($val){
+  transition: $val .3s ease;
+}
+

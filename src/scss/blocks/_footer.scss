@@ -1,10 +1,34 @@
 .footer{
-  background-color: cadetblue;
-  padding: 120px 0;
+  padding-top: 47px;
+  padding-bottom: 13px;
+  line-height: 170%;
   text-align: center;
 
-  @media (max-width: 1200px) {
-    padding: 50px 0;
+  &__inner{
+    row-gap: 10px;
+    margin-right: auto;
+    margin-left: auto;
   }
+
+  @include laptop(){
+    padding-top: 40px;
+    padding-bottom: 40px;
+    line-height: 160%;
+  }
+  @include tabled(){
+    padding-top: 60px;
+    padding-bottom: 60px;
+    line-height: 150%;
+    text-align: left;
+
+    &__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__inner *:nth-child(2n){
+      text-align: end;
+    }
+  }
+
 }
 

@@ -15,6 +15,50 @@
   overflow: hidden;
 }
 
+
+$list-color: ('accent' : --text-accent, 'white':--text-white);
+@each $name,$color in $list-color {
+  @include color-text($name,$color);
+}
+
+$list-font-weight: ('regular' : --font-weight-regular, 'medium': --font-weight-medium, 'semibold':--font-weight-semibold, 'bold':--font-weight-bold);
+@each $name,$weight in $list-font-weight {
+  @include font-weight($name,$weight);
+}
+
 .grid{
   display: grid;
+}
+
+
+.button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 35px;
+  gap: 10px;
+
+  height: 54px;
+  width: 100%;
+
+  background-color: var(--button-color);
+  border-radius: 65px;
+
+  @include transparent(all);
+
+  &:hover,&:active{
+    color: var(--text-white);
+    background-color: var(--button-color-hover);
+  }
+  &:active{
+    opacity: .8;
+  }
+
+  @include laptop(){
+    width: fit-content;
+  }
+
+
+
 }
