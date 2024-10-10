@@ -13,6 +13,8 @@ const changed = require('gulp-changed');
 const sassGlob = require('gulp-sass-glob');
 const replace = require('gulp-replace');
 
+const webp = require('gulp-webp');
+
 // NOTIFY
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
@@ -65,6 +67,11 @@ gulp.task('sass:dev', function (){
 // Копирование изображений
 gulp.task('images:dev', function (){
     return gulp.src('./src/img/**/*', { encoding: false })
+        .pipe(changed('./build/img/'))
+        .pipe(webp())
+        .pipe(gulp.dest('./build/img/'))
+
+        .pipe(gulp.src('./src/img/**/*', { encoding: false }))
         .pipe(changed('./build/img/'))
         .pipe(imagemin({verbose: true}))
         .pipe(gulp.dest('./build/img/'))

@@ -53,27 +53,4 @@ h3, .text-big{
 }
 
 
-.box{
-  @include tabled(){
-    background-color: coral;
-  }
 
-  /* Фолбэк */
-  background-image: url("puppy.png");
-
-  /* Для Chrome и Safari */
-  background-image: -webkit-image-set(
-                  url("puppy@2x.png") 2x,
-                  url("puppy@1x.png") 1x
-  );
-
-  /* Для Firefox */
-  background-image: image-set(
-                  url("puppy@2x.avif") type("image/avif") 2x,
-                  url("puppy@1x.avif") type("image/avif") 1x,
-                  url("puppy@2x.webp") type("image/webp") 2x,
-                  url("puppy@1x.webp") type("image/webp") 1x,
-                  url("puppy@2x.png") 2x,
-                  url("puppy@1x.png") 1x
-  );
-}

@@ -26,18 +26,29 @@ $list-font-weight: ('regular' : --font-weight-regular, 'medium': --font-weight-m
   @include font-weight($name,$weight);
 }
 
+.flex{
+  display: flex;
+}
 .grid{
   display: grid;
 }
-
+.p-relative{
+  position: relative;
+}
+.p-absolute{
+  position: absolute;
+}
+.p-fixed{
+  position: fixed;
+}
 
 .button{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+ @include flex-text-center();
+
   padding: 15px 35px;
   gap: 10px;
+
+  @include font(var(--font-weight-bold), 16px, 150%);
 
   height: 54px;
   width: 100%;
@@ -45,7 +56,11 @@ $list-font-weight: ('regular' : --font-weight-regular, 'medium': --font-weight-m
   background-color: var(--button-color);
   border-radius: 65px;
 
-  @include transparent(all);
+  @include transition(all);
+
+  &:hover{
+    filter: drop-shadow(0 0 5px var(--button-color-hover));
+  }
 
   &:hover,&:active{
     color: var(--text-white);
@@ -58,7 +73,72 @@ $list-font-weight: ('regular' : --font-weight-regular, 'medium': --font-weight-m
   @include laptop(){
     width: fit-content;
   }
-
-
-
 }
+
+.mode-switch{
+  &__inner{
+    display: block;
+    width: 280px;
+    height: 54px;
+
+    border: 3px solid currentColor;
+    border-radius: 108px;
+    overflow: hidden;
+
+    @include font(var(--font-weight-bold), 16px, 150%);
+    @include transition(all);
+
+    &:before{
+      content: attr(data-off);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      @include flex-text-center();
+    }
+    &:after{
+      content: attr(data-on);
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      @include flex-text-center();
+
+      color: var(--text-white);
+      text-align: center;
+      background: var(--text-color);
+      border-radius: 65px;
+      @include transition(all);
+    }
+  }
+  input[type="checkbox"]{
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    width: 280px;
+    height: 54px;
+    opacity: 0;
+    z-index: 1;
+    margin: 0;
+  }
+
+  input[type="checkbox"]:checked + &__inner{
+    color: var(--text-white);
+
+    &:after{
+      content: attr(data-off);
+      right: 50%;
+      color: var(--text-color);
+      background: var(--text-white);
+
+    }
+    &:before{
+      content: attr(data-on);
+      left: auto;
+      right: 0;
+    }
+  }
+
+ }
